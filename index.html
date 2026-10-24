@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BUKTI GANDA Store</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef3f0;--sf:#fff;--ink:#10201d;--mut:#5b6f6a;--ln:#d6e1de;--tl:#0f766e;--tls:#d8efeb;--hz:#e8590c;--hzs:#fde6d8;--am:#9a5b05;--ams:#fdf0d0;--rd:#b91c1c;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0c1917;--sf:#13231f;--ink:#e6f0ed;--mut:#93aaa4;--ln:#25403a;--tl:#2dd4bf;--tls:#123a35;--hz:#ff8a4c;--hzs:#3a2214;--am:#f5b84a;--ams:#3a2c10;--rd:#f87171;color-scheme:dark}}
+:root[data-theme=dark]{--bg:#0c1917;--sf:#13231f;--ink:#e6f0ed;--mut:#93aaa4;--ln:#25403a;--tl:#2dd4bf;--tls:#123a35;--hz:#ff8a4c;--hzs:#3a2214;--am:#f5b84a;--ams:#3a2c10;--rd:#f87171;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit;margin:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 Figtree,system-ui,sans-serif}
+h1,h2,h3,.brand{font-family:'Bricolage Grotesque',Figtree,system-ui,sans-serif;letter-spacing:-.02em}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--hz);outline-offset:2px}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;align-items:center;gap:8px;padding:10px 18px;background:color-mix(in srgb,var(--sf) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--ln)}
+.top button{border:0;background:none;font-size:20px;width:40px;height:40px;border-radius:10px;cursor:pointer}.top button:hover{background:var(--bg)}
+.brand{font-weight:800;font-size:20px}.brand span{color:var(--hz)}.sp{flex:1}
+#dr{position:fixed;z-index:30;top:0;bottom:0;left:0;width:270px;background:var(--sf);border-right:1px solid var(--ln);padding:18px 12px;transform:translateX(-100%);transition:transform .25s;overflow:auto}
+#dr.on{transform:none;box-shadow:8px 0 30px rgba(0,0,0,.25)}
+#dr button{display:flex;gap:10px;width:100%;text-align:left;border:0;background:none;padding:10px 12px;border-radius:10px;cursor:pointer;font-weight:500}#dr button:hover,#dr button.on{background:var(--tls);color:var(--tl)}
+#dr h3{padding:4px 12px 10px}
+.wrap{max-width:1120px;margin:0 auto;padding:22px 18px 60px}
+.view{display:none}.view.on{display:block;animation:in .35s}
+.hero{position:relative;overflow:hidden;color:#fff;border-radius:28px;padding:50px 42px 34px;margin-bottom:22px;background:linear-gradient(135deg,#0b1f1c 0%,#0f4f48 55%,#0f766e 100%)}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;pointer-events:none;animation:drift 9s ease-in-out infinite alternate}
+.hero::before{width:320px;height:320px;right:90px;top:-60px;background:#e8590c;opacity:.85}
+.hero::after{width:320px;height:320px;right:-40px;top:40px;background:rgba(255,255,255,.12);border:3px solid rgba(255,255,255,.75);animation-delay:-4s}
+@keyframes drift{to{transform:translate(-26px,20px) scale(1.06)}}
+.hero>*{position:relative;z-index:1}
+.pl{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:4px 14px;border-radius:99px;font-size:12.5px;font-weight:600;margin-bottom:16px}
+.hero h1{font-size:clamp(34px,6vw,62px);line-height:1;letter-spacing:-.035em;font-weight:800;max-width:17ch;margin-bottom:14px}
+.hero p{opacity:.85;max-width:56ch;margin-bottom:20px;font-size:16px}
+.hr{display:flex;gap:10px;flex-wrap:wrap}.hero input{flex:1;min-width:220px;max-width:400px;padding:14px 20px;border-radius:99px;border:0;background:#fff;color:#10201d}.hero .btn{padding:14px 24px;border-radius:99px}
+.hs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:30px}.hs div{background:rgba(255,255,255,.12);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:12px 16px}.hs b{font:800 32px/1 'Bricolage Grotesque',sans-serif;display:block}.hs span{font-size:12px;opacity:.8}
+.sh{font:800 22px 'Bricolage Grotesque',sans-serif;margin:6px 0 12px}
+.mods{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px}.mod{position:relative;overflow:hidden;border:0;border-radius:22px;padding:22px;min-height:170px;color:#fff;text-align:left;cursor:pointer;background:var(--g);transition:transform .2s}.mod:hover{transform:translateY(-5px)}.mod small{opacity:.9;font-weight:600;display:block;max-width:20ch}.mod b{display:block;font:800 32px 'Bricolage Grotesque',sans-serif;letter-spacing:-.02em}.mod .em{position:absolute;right:12px;bottom:-6px;font-size:88px;opacity:.28}
+.lg{display:inline-block;width:28px;height:20px;margin-right:8px;vertical-align:-3px;background:radial-gradient(circle at 10px 10px,var(--ink) 0 9px,transparent 10px),radial-gradient(circle at 18px 10px,var(--hz) 0 9px,transparent 10px)}
+.hi{display:inline-grid;place-items:center;width:48px;height:48px;border-radius:15px;font-size:25px;margin-right:12px;vertical-align:middle;box-shadow:0 8px 18px rgba(0,0,0,.2)}
+@keyframes in{from{opacity:0;transform:translateY(12px)}}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.chips button{border:1.5px solid var(--ln);background:transparent;padding:5px 13px;border-radius:99px;font-weight:600;font-size:13px;cursor:pointer}.chips button.on{background:var(--tl);border-color:var(--tl);color:var(--bg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.app{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:6px;background:var(--sf);border:1px solid var(--ln);border-radius:20px;padding:22px 20px 18px;text-align:left;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.app::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:var(--g)}
+.app:hover{transform:translateY(-6px);box-shadow:0 18px 34px rgba(15,118,110,.22);border-color:var(--tl)}
+.app .ic{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;font-size:30px;margin-bottom:6px;background:var(--g);box-shadow:0 8px 18px rgba(0,0,0,.2)}
+.app b{font:800 18px 'Bricolage Grotesque',sans-serif}.app span{color:var(--mut);font-size:13px}.app em{margin-top:auto;padding-top:10px;font-style:normal;font-weight:700;font-size:13px;color:var(--tl)}
+.app .bd{position:absolute;right:14px;top:18px;background:var(--hz);color:#fff;font-size:11px;font-weight:700;padding:2px 10px;border-radius:99px;font-style:normal}
+.app.f{grid-column:span 2;background:linear-gradient(135deg,#0b1f1c,#0f766e);color:#fff;border:0}.app.f span,.app.f em{color:rgba(255,255,255,.88)}.app.f b{font-size:28px}
+.back{border:0;background:none;color:var(--tl);font-weight:700;cursor:pointer;padding:0;margin-bottom:10px}
+h2{font-size:32px;line-height:1.1;margin-bottom:6px}.mut{color:var(--mut);font-size:13.5px}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:16px;margin-top:14px;align-items:start}
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:16px;padding:16px 18px;margin-bottom:14px}
+label{display:block;font-size:12.5px;font-weight:600;margin:10px 0 4px}
+input:not([type=checkbox]):not([type=range]),select,textarea{width:100%;padding:9px 12px;border-radius:10px;border:1.5px solid var(--ln);background:var(--bg)}
+textarea{min-height:120px;resize:vertical;font-size:13.5px}
+input[type=range]{width:100%;accent-color:var(--hz)}
+.btn{border:0;background:var(--tl);color:var(--bg);font-weight:700;padding:10px 18px;border-radius:10px;cursor:pointer}.btn.o{background:transparent;color:var(--tl);border:1.5px solid var(--ln)}.btn.h{background:var(--hz);color:#fff}
+.r{display:flex;gap:8px;flex-wrap:wrap;align-items:end}.r>*{flex:1;min-width:110px}.r .btn{flex:none}
+table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;font-size:12px;color:var(--mut);padding:8px;border-bottom:1.5px solid var(--ln)}td{padding:9px 8px;border-bottom:1px solid var(--ln);vertical-align:top}.ov{overflow-x:auto}
+.pill{display:inline-block;border-radius:99px;padding:2px 10px;font-size:11.5px;font-weight:700}.p1{background:var(--tls);color:var(--tl)}.p2{background:var(--ams);color:var(--am)}.p3{background:var(--hzs);color:var(--hz)}.p4{background:var(--hzs);color:var(--rd)}
+.code{font:600 12px ui-monospace,Menlo,monospace;background:var(--bg);border:1px dashed var(--mut);padding:2px 7px;border-radius:6px;white-space:nowrap}
+.meter{height:12px;background:var(--bg);border-radius:99px;overflow:hidden;margin:6px 0}.meter i{display:block;height:100%;background:var(--tl);border-radius:99px;transition:width .4s}
+.big{font:800 38px 'Bricolage Grotesque',sans-serif;line-height:1.1}
+.rw{display:grid;grid-template-columns:28px 1.5fr 1fr 1fr;gap:10px;align-items:center;padding:9px 12px;border:1px solid var(--ln);border-radius:12px;background:var(--sf);margin-bottom:6px;font-size:13.5px}
+.rw .s{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-weight:800}.ok .s{background:var(--tls);color:var(--tl)}.fx .s{background:var(--ams);color:var(--am)}.fx{border-color:var(--am)}.no .s{background:var(--hzs);color:var(--rd)}
+.rw small{display:block;color:var(--mut);font-size:11.5px}
+.ck{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--ln);cursor:pointer}.ck input{margin-top:4px;accent-color:var(--tl)}.ck.d span{text-decoration:line-through;color:var(--mut)}
+.note{background:var(--ams);color:var(--am);border-radius:12px;padding:10px 14px;font-size:13px;margin-top:10px}
+.hit{display:inline-block;margin:3px;padding:3px 10px;border-radius:99px;font-size:12.5px;font-weight:600}.hit.y{background:var(--tls);color:var(--tl)}.hit.n{background:var(--bg);color:var(--mut);border:1px dashed var(--mut)}
+dialog{border:0;border-radius:18px;padding:24px;max-width:480px;background:var(--sf);color:var(--ink)}dialog::backdrop{background:rgba(0,0,0,.5)}
+@media(max-width:800px){.mods{grid-template-columns:1fr}.hs{grid-template-columns:1fr 1fr}.hero{padding:34px 22px 24px}.hero::before,.hero::after{opacity:.4}.app.f{grid-column:auto}.two{grid-template-columns:1fr}.rw{grid-template-columns:28px 1fr 1fr}.rw>div:nth-child(2){grid-column:2/4}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<header class="top"><button id="mn" aria-label="Buka menu">☰</button><b class="brand"><i class="lg"></i>BUKTI GANDA <span>Store</span></b><span class="sp"></span><button id="hp" aria-label="Bantuan">❓</button><button id="th" aria-label="Ganti tema">🌓</button></header>
+<aside id="dr" aria-label="Menu alat"></aside>
+<dialog id="dg"><h3>Cara pakai</h3><p class="mut" style="margin:8px 0">BUKTI GANDA menjadikan setiap satwa sitaan sebagai bukti hukum sekaligus bukti kesehatan. Tiga modul: TAKAR memilah dan mengurutkan, PETIK mengambil sampel, SAMBUNG menyalurkan hasil ke SIZE.</p><p class="mut">Pilih alat di Store, isi data, hasilnya dihitung langsung. Isian bersifat simulasi, bukan catatan kasus nyata.</p><button class="btn" style="margin-top:14px" onclick="dg.close()">Mengerti</button></dialog>
+
+<div class="wrap">
+<section class="view on" id="v-store">
+ <div class="hero"><span class="pl">Esai ASF 2026 · PKN STAN</span><h1>Satwa sitaan jadi bukti hukum dan bukti kesehatan</h1><p>Tujuh alat siap pakai untuk menyusun berita acara, mengurutkan antrean laboratorium, dan memastikan prototype sama dengan esai.</p><div class="hr"><input id="sq" type="search" placeholder="Cari alat, misalnya biaya atau checklist" aria-label="Cari alat"><button class="btn h" data-o="cek">Mulai cek esai</button></div><div class="hs"><div><b data-n="7">0</b><span>alat siap pakai</span></div><div><b data-n="24">0</b><span>butir dicek dengan esai</span></div><div><b data-n="24">0</b><span>jam batas notifikasi</span></div><div><b data-n="80">0</b><span>% target sitaan bersaksi</span></div></div></div>
+ <div class="sh">Tiga modul BUKTI GANDA</div><div class="mods"><button class="mod" data-o="spz" style="--g:linear-gradient(135deg,#2563eb,#38bdf8)"><small>Memilah dan mengurutkan antrean</small><b>TAKAR</b><span class="em">⚖️</span></button><button class="mod" data-o="check" style="--g:linear-gradient(135deg,#059669,#84cc16)"><small>Mengambil sampel di lapangan</small><b>PETIK</b><span class="em">🧪</span></button><button class="mod" data-o="notif" style="--g:linear-gradient(135deg,#dc2626,#fb923c)"><small>Menyalurkan hasil ke SIZE</small><b>SAMBUNG</b><span class="em">📡</span></button></div><div class="sh">Semua alat</div><div class="chips" id="cat"></div><div class="grid" id="apps"></div>
+</section>
+
+<section class="view" id="v-cek"><button class="back">← Store</button><h2>Cek kesesuaian esai</h2><p class="mut">Periksa apakah angka di aplikasi sama dengan naskah, atau tempel teksmu sendiri untuk diuji.</p>
+ <div class="chips" style="margin-top:12px" id="cekt"><button class="on" data-t="a">Butir aplikasi</button><button data-t="b">Uji teks tempelan</button></div>
+ <div id="cek-a"><div class="card"><div class="r"><div><b id="cs">0 dari 0 butir sesuai</b><div class="meter"><i id="cm" style="width:0"></i></div></div><button class="btn h" id="crun">Periksa ulang</button></div></div>
+  <div class="r" style="margin-bottom:10px"><input id="cq" type="search" placeholder="Telusuri: 8,36 · 24 jam · Nipah" aria-label="Telusuri butir"><div class="chips" style="margin:0;flex:none" id="cf"></div></div><div id="crows"></div>
+  <div class="note">Dikoreksi: jumlah pasar beruk, garangan jawa, musang galing, dan skor karnivora sebelumnya ditebak. Esai (Lampiran 2) menyebut angka itu tidak tersaji, jadi kini n/a.</div></div>
+ <div id="cek-b" style="display:none"><div class="two"><div class="card"><label for="tt">Tempel teks dari naskah atau prototype</label><textarea id="tt" placeholder="Contoh: Skor monyet ekor panjang 8,36, notifikasi dalam 24 jam, tarif Rp500.000..."></textarea><div class="mut" style="margin-top:8px">Aplikasi mencari angka kunci esai di teksmu dan menandai angka tebakan lama.</div></div><div class="card"><h3>Hasil</h3><div id="tr" class="mut" style="margin-top:8px">Mulai mengetik di sebelah kiri.</div></div></div></div>
+</section>
+
+<section class="view" id="v-ba"><button class="back">← Store</button><h2>Penyusun berita acara</h2><p class="mut">Tambah satwa sitaan. Jenjang, antrean, kode sampel, dan panel uji tersusun seperti Lampiran 1.</p>
+ <div class="two"><div class="card"><div class="r"><div><label for="bn">Nomor berita acara</label><input id="bn" value="BA-ID/....../2027"></div><div><label for="bl">Lokasi penyitaan</label><input id="bl" placeholder="Contoh: Rangkasbitung"></div></div>
+  <label for="bs">Satwa</label><select id="bs"></select><div class="r"><div><label for="bj">Jumlah</label><input id="bj" type="number" min="1" value="1"></div><div><label for="bk">Kondisi</label><select id="bk"><option value="stabil">Stabil</option><option value="kritis">Kritis</option><option value="mati">Mati</option></select></div><button class="btn" id="badd">Tambah</button></div>
+  <div class="card" style="margin:14px 0 0;background:var(--bg)"><b>Rasio Sitaan Bersaksi</b><div class="big" id="rsb">0%</div><div class="meter"><i id="rsm" style="width:0"></i></div><div class="mut" id="rst">Target ≥80% satwa hidup jenjang penuh</div></div></div>
+ <div><div class="card ov"><table><thead><tr><th>No. BB</th><th>Satwa</th><th>Jenjang</th><th>Antrean</th><th>Kode</th><th>Sampel dan panel uji</th><th></th></tr></thead><tbody id="bt"></tbody></table><div class="mut" id="be" style="text-align:center;padding:20px">Belum ada satwa. Tambahkan dari formulir.</div></div>
+ <div class="card"><label for="bc">Teks tabel (salin ke dokumen)</label><textarea id="bc" readonly></textarea></div></div></div>
+</section>
+
+<section class="view" id="v-spz"><button class="back">← Store</button><h2>Skor Prioritas Zoonotik</h2><p class="mut">SPZ = jumlah virus × (jumlah pasar ÷ 14). Kosongkan pasar bila tidak tersaji: hasilnya n/a, bukan tebakan.</p>
+ <div class="two"><div class="card ov"><table><thead><tr><th>Takson</th><th>Virus</th><th>Pasar</th><th>Kemenkes</th></tr></thead><tbody id="zt"></tbody></table><div class="r" style="margin-top:12px"><input id="zn" placeholder="Nama takson baru" aria-label="Nama takson"><button class="btn o" id="zadd">Tambah takson</button></div></div>
+ <div class="card"><h3>Antrean laboratorium</h3><ol id="zq" style="padding-left:20px;margin-top:8px"></ol><div class="mut" style="margin-top:10px">Inang patogen yang diwaspadai Kemenkes selalu di depan. Skor tidak menimbang keganasan.</div></div></div>
+</section>
+
+<section class="view" id="v-biaya"><button class="back">← Store</button><h2>Estimasi biaya uji</h2><p class="mut">Bandingkan pengujian per individu dengan pooling sampel. Tarif awal Rp500.000 (PMK 85/2023).</p>
+ <div class="two"><div class="card"><label for="bn1">Jumlah individu: <b id="bnv">162</b></label><input id="bn1" type="range" min="1" max="400" value="162">
+  <div class="r"><div><label for="bp">Panel uji</label><select id="bp"><option>1</option><option>2</option><option>3</option></select></div><div><label for="bpl">Ukuran pool</label><input id="bpl" type="number" min="2" max="20" value="10"></div></div><label for="bta">Tarif per pengujian (Rp)</label><input id="bta" type="number" value="500000">
+  <div class="note">Pooling menekan biaya tetapi dapat menurunkan kepekaan uji. Dokter hewan memilih skenario.</div></div><div class="card" id="bo"></div></div>
+</section>
+
+<section class="view" id="v-target"><button class="back">← Store</button><h2>Pemantau target</h2><p class="mut">Hitung Rasio Sitaan Bersaksi dan cek batas waktu laboratorium dan notifikasi.</p>
+ <div class="two"><div class="card"><h3>Rasio Sitaan Bersaksi</h3><div class="r"><div><label for="t1">Hidup jenjang penuh disita</label><input id="t1" type="number" min="0" value="20"></div><div><label for="t2">Yang disampel</label><input id="t2" type="number" min="0" value="17"></div></div><div class="r"><div><label for="t3">Bangkai disita</label><input id="t3" type="number" min="0" value="2"></div><div><label for="t4">Bangkai diuji</label><input id="t4" type="number" min="0" value="2"></div></div><div id="to" style="margin-top:12px"></div></div>
+ <div class="card"><h3>Batas waktu</h3><label for="d1">Tanggal penyitaan</label><input id="d1" type="date"><label for="d2">Tanggal hasil laboratorium keluar</label><input id="d2" type="date"><div id="do" style="margin-top:12px"></div></div></div>
+</section>
+
+<section class="view" id="v-check"><button class="back">← Store</button><h2>Checklist lapangan</h2><p class="mut">Centang langkah yang sudah selesai. Kemajuan tersimpan di peramban ini.</p><div class="grid" id="cl" style="margin-top:14px"></div><div style="margin-top:6px"><button class="btn o" id="clr">Reset semua</button></div>
+</section>
+
+<section class="view" id="v-notif"><button class="back">← Store</button><h2>Pembuat notifikasi SAMBUNG</h2><p class="mut">Pilih hasil uji, lalu salin pesan untuk tiap pihak. Batas notifikasi 24 jam sejak hasil positif.</p>
+ <div class="two"><div class="card"><label for="np">Hasil uji</label><select id="np"><option value="nipah">Kalong positif Nipah</option><option value="h5n1">Burung positif H5N1</option><option value="knowlesi">Primata positif P. knowlesi</option><option value="neg">Semua negatif</option></select>
+  <div class="r"><div><label for="nb">Nomor barang bukti</label><input id="nb" value="BB-01"></div><div><label for="nl">Lokasi penyitaan</label><input id="nl" placeholder="Contoh: Ketapang"></div></div><label for="nw">Waktu hasil keluar</label><input id="nw" type="datetime-local"><div class="note" id="nd"></div></div>
+ <div id="nm"></div></div>
+</section>
+</div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],pc=(n,d=2)=>n.toFixed(d).replace('.',','),rp=n=>'Rp'+new Intl.NumberFormat('id-ID').format(n);
+const PENUH=['primata','kelelawar','karnivora','rodensia','trenggiling','burung'],jenjang=g=>PENUH.includes(g)?'Penuh':'Dasar',spz=(v,p)=>p==null||p===''?null:v*p/14;
+// ---- Store
+const TOOLS=[['cek','✅','Cek kesesuaian esai','Bandingkan tiap angka dengan naskah esai, atau uji teks tempelanmu.','Verifikasi','#d8efeb'],['ba','🧾','Penyusun berita acara','Susun tabel BUKTI GANDA lengkap dengan kode sampel dan antrean.','Lapangan','#fde6d8'],['spz','📊','Skor Prioritas Zoonotik','Hitung dan urutkan antrean laboratorium dari data takson.','Analisis','#d6ecff'],['biaya','💰','Estimasi biaya uji','Bandingkan biaya per individu dan pooling sampel.','Analisis','#fdf0d0'],['target','🎯','Pemantau target','Hitung Rasio Sitaan Bersaksi dan batas waktu 7 hari dan 24 jam.','Verifikasi','#e5e0ff'],['check','📋','Checklist lapangan','Panduan langkah petugas dengan kemajuan tersimpan.','Lapangan','#d8efeb'],['notif','🔔','Pembuat notifikasi','Buat pesan untuk dinas kesehatan, peternakan, dan rehabilitasi.','Lapangan','#fde6d8']];
+let cat='Semua';const G={cek:'linear-gradient(135deg,#0f766e,#2dd4bf)',ba:'linear-gradient(135deg,#e8590c,#fbbf24)',spz:'linear-gradient(135deg,#2563eb,#38bdf8)',biaya:'linear-gradient(135deg,#d97706,#facc15)',target:'linear-gradient(135deg,#7c3aed,#c084fc)',check:'linear-gradient(135deg,#059669,#a3e635)',notif:'linear-gradient(135deg,#dc2626,#fb923c)'},B={cek:'Populer',ba:'Baru',notif:'Baru'};
+function store(){const t=$('#sq').value.toLowerCase();$('#apps').innerHTML=TOOLS.filter(x=>(cat==='Semua'||x[4]===cat)&&(x[2]+x[3]).toLowerCase().includes(t)).map(x=>`<button class="app ${x[0]==='cek'&&cat==='Semua'&&!t?'f':''}" style="--g:${G[x[0]]}" data-o="${x[0]}"><div class="ic">${x[1]}</div>${B[x[0]]?`<i class="bd">${B[x[0]]}</i>`:''}<b>${x[2]}</b><span>${x[3]}</span><em>Buka alat →</em></button>`).join('')||'<p class="mut">Tidak ada alat yang cocok.</p>'}
+$('#cat').innerHTML=['Semua','Verifikasi','Lapangan','Analisis'].map(c=>`<button class="${c===cat?'on':''}">${c}</button>`).join('');
+$('#cat').onclick=e=>{if(e.target.tagName!=='BUTTON')return;cat=e.target.textContent;$$('#cat button').forEach(b=>b.classList.toggle('on',b===e.target));store()};
+$('#sq').oninput=store;store();
+function open(id){$$('.view').forEach(v=>v.classList.toggle('on',v.id==='v-'+id));$$('#dr button').forEach(b=>b.classList.toggle('on',b.dataset.o===id));$('#dr').classList.remove('on');scrollTo(0,0)}
+$('#dr').innerHTML='<h3>Alat</h3><button data-o="store">🏪 Store</button>'+TOOLS.map(x=>`<button data-o="${x[0]}">${x[1]} ${x[2]}</button>`).join('');
+document.addEventListener('click',e=>{const b=e.target.closest('[data-o]');if(b)open(b.dataset.o);if(e.target.classList.contains('back'))open('store')});
+$('#mn').onclick=()=>$('#dr').classList.toggle('on');$('#hp').onclick=()=>$('#dg').showModal();
+$('#th').onclick=()=>{const r=document.documentElement,d=getComputedStyle(r).colorScheme==='dark';r.dataset.theme=d?'light':'dark'};
+// ---- Cek esai
+const N=162,T=500000,jt=x=>'Rp'+pc(x/1e6,1).replace(',0','')+' juta';
+const AN={kalong:['Kalong besar','kelelawar',1,10,1],kelelawar:['Kelelawar buah berhidung pendek','kelelawar',5,10,0],monyet:['Monyet ekor panjang','primata',9,13,0],beruk:['Beruk','primata',6,null,0],kukang:['Kukang','primata',0,null,0],burung:['Burung kicau','burung',null,null,0],trenggiling:['Trenggiling','trenggiling',null,null,0],karnivora:['Musang atau karnivora','karnivora',null,null,0],rodensia:['Rodensia','rodensia',null,null,0],ular:['Ular sanca','reptil',null,null,0]};
+const PAN={kelelawar:'Usap orofaring, feses; PCR Nipah dan koronavirus',primata:'Usap, feses; serologi herpes B hanya bila dibius klinis',burung:'Usap orofaring dan kloaka; RT-PCR H5N1 (gabungan)',karnivora:'Usap, feses; rabies dari jaringan otak bangkai',trenggiling:'Usap, feses; PCR koronavirus',rodensia:'Usap, feses; PCR hantavirus',reptil:'Catatan klinis dan foto'};
+const rank=a=>a.map((x,i)=>i).sort((i,j)=>(a[j].w||0)-(a[i].w||0)||(spz(a[j].v,a[j].p)??-1)-(spz(a[i].v,a[i].p)??-1));
+const q3=rank(['kalong','monyet','burung'].map(k=>({n:AN[k][0],v:AN[k][2],p:AN[k][3],w:AN[k][4]})));
+const q3n=['Kalong besar','Monyet ekor panjang','Burung kicau'][q3[0]],q3m=['Kalong besar','Monyet ekor panjang','Burung kicau'][q3[1]];
+const C=[['Data','Satwa hidup diselamatkan Ditjen Gakkum, 2021','5.710','5.710','A'],['Data','Virus zoonotik teridentifikasi','17','17','A'],['Data','Takson pasar yang menjadi inang','8','8','A'],['Data','Pasar satwa yang disurvei','14','14','A'],['Data','Burung disita, Operasi Thunder 2025','162','162','A'],
+['Rumus','SPZ monyet ekor panjang (9 × 13/14)',pc(spz(9,13)),'8,36','Lampiran 2'],['Rumus','SPZ kelelawar buah (5 × 10/14)',pc(spz(5,10)),'3,57','Lampiran 2'],['Rumus','SPZ kalong besar (1 × 10/14)',pc(spz(1,10)),'0,71','Lampiran 2'],
+['Rumus','SPZ beruk (pasar tidak tersaji)',spz(6,null)==null?'n/a':'?','n/a','Lampiran 2',1,'Versi lama: ~6,0 (tebakan)'],['Rumus','Jumlah pasar garangan jawa','n/a','n/a','Lampiran 2',1,'Versi lama: 8 pasar (tebakan)'],['Rumus','Jumlah pasar musang galing','n/a','n/a','Lampiran 2',1,'Versi lama: 6 pasar (tebakan)'],['Rumus','Skor karnivora','n/a','n/a','Lampiran 2',1,'Versi lama: ~1,0 (tebakan)'],
+['Aturan','Jenjang kukang meski skor 0',jenjang('primata'),'Penuh','D.2'],['Aturan','Jenjang ular sanca (reptil)',jenjang('reptil'),'Dasar','D.2'],['Aturan','Antrean pertama: inang diwaspadai Kemenkes',q3n,'Kalong besar','D.2'],['Aturan','Antrean kedua: skor tertinggi',q3m,'Monyet ekor panjang','D.2'],
+['Target','Rasio Sitaan Bersaksi (hidup, penuh)','≥80%','≥80%','D.3'],['Target','Hasil laboratorium sejak penyitaan','≤7 hari','≤7 hari','D.3'],['Target','Notifikasi sejak hasil positif','≤24 jam','≤24 jam','D.3'],['Target','Uji coba 12 bulan','2027 · Ketapang dan Minahasa','2027 · Ketapang dan Minahasa','D.3'],
+['Biaya','Tarif RT-PCR per pengujian',rp(T),'Rp500.000','D.3'],['Biaya','162 burung per individu',jt(N*T),'Rp81 juta','D.3'],['Biaya','Pooling per 5 ekor',jt(Math.ceil(N/5)*T),'Rp16,5 juta','D.3'],['Biaya','Pooling per 10 ekor',jt(Math.ceil(N/10)*T),'Rp8,5 juta','D.3']];
+const R=C.map(([g,l,a,b,s,f,n])=>({g,l,a,b,s,n,st:f?'fx':a===b?'ok':'no'}));
+let cf='all',busy=0;
+function cpaint(u=R.length){const t=$('#cq').value.toLowerCase();
+ $('#crows').innerHTML=R.map((r,i)=>[r,i]).filter(([r])=>(cf==='all'||r.st===cf)&&(r.l+r.a+r.b+r.g).toLowerCase().includes(t)).map(([r,i])=>`<div class="rw ${i<u?r.st:''}" style="${i<u?'':'opacity:.35'}"><div class="s">${i<u?{ok:'✓',fx:'↻',no:'✗'}[r.st]:'·'}</div><div>${r.l}<small>${r.g} · ${r.s==='A'?'A. Latar belakang':r.s}</small></div><div><small>Aplikasi</small><b>${r.a}</b></div><div><small>Esai</small><b>${r.b}</b>${r.n?`<small style="color:var(--am)">${r.n}</small>`:''}</div></div>`).join('')||'<p class="mut">Tidak ada butir yang cocok.</p>';
+ const ok=R.slice(0,u).filter(r=>r.st!=='no').length;$('#cs').textContent=`${ok} dari ${R.length} butir sesuai`;$('#cm').style.width=ok/R.length*100+'%'}
+function crun(){if(busy)return;busy=1;let i=0;const id=setInterval(()=>{cpaint(++i);if(i>=R.length){clearInterval(id);busy=0}},80)}
+$('#crun').onclick=crun;$('#cq').oninput=()=>cpaint(busy?0:R.length);
+$('#cf').innerHTML=[['all','Semua'],['ok','Cocok'],['fx','Dikoreksi']].map(([k,l],i)=>`<button data-k="${k}" class="${i?'':'on'}">${l}</button>`).join('');
+$('#cf').onclick=e=>{const k=e.target.dataset.k;if(!k)return;cf=k;$$('#cf button').forEach(b=>b.classList.toggle('on',b===e.target));cpaint(busy?0:R.length)};
+$('#cekt').onclick=e=>{const t=e.target.dataset.t;if(!t)return;$$('#cekt button').forEach(b=>b.classList.toggle('on',b===e.target));$('#cek-a').style.display=t==='a'?'':'none';$('#cek-b').style.display=t==='b'?'':'none'};
+cpaint(0);let ran=0;document.addEventListener('click',e=>{if(!ran&&e.target.closest('[data-o="cek"]')){ran=1;setTimeout(crun,300)}});
+const KEY=[['8,36','SPZ monyet ekor panjang'],['3,57','SPZ kelelawar buah'],['0,71','SPZ kalong besar'],['5.710','Satwa disita 2021'],['162','Burung Rangkasbitung'],['17 virus','Virus zoonotik'],['24 jam','Batas notifikasi'],['7 hari','Batas hasil lab'],['80','Target RSB (%)'],['Rp500.000','Tarif RT-PCR'],['Rp81 juta','Biaya per individu'],['16,5','Pooling 5 ekor'],['8,5','Pooling 10 ekor']];
+$('#tt').oninput=()=>{const t=$('#tt').value;if(!t.trim()){$('#tr').textContent='Mulai mengetik di sebelah kiri.';return}
+ const g=/~\s?6,0|garangan[^.]{0,40}\b8 pasar|musang galing[^.]{0,40}\b6 pasar|karnivora[^.]{0,30}1,0/i.test(t);
+ $('#tr').innerHTML=KEY.map(([k,l])=>`<span class="hit ${t.includes(k)?'y':'n'}">${t.includes(k)?'✓':'·'} ${l}: ${k}</span>`).join('')+(g?'<div class="note">Ditemukan angka tebakan lama (beruk, garangan, musang, atau karnivora). Esai menyatakan angka itu n/a.</div>':'<div class="mut" style="margin-top:10px">Tidak ada angka tebakan lama yang terdeteksi.</div>')};
+// ---- Berita acara
+let BA=[];$('#bs').innerHTML=Object.entries(AN).map(([k,a])=>`<option value="${k}">${a[0]}</option>`).join('');
+function ba(){const it=BA.map(x=>({...x,a:AN[x.k]})),rk=rank(it.map(x=>({v:x.a[2],p:x.a[3],w:x.a[4]})));
+ const qs=it.map((x,i)=>jenjang(x.a[1])==='Penuh'&&x.kon!=='kritis'?rk.filter(j=>jenjang(it[j].a[1])==='Penuh'&&it[j].kon!=='kritis').indexOf(i)+1:0);
+ $('#be').style.display=it.length?'none':'block';
+ const lines=['No BB;Satwa;Jumlah;Kondisi;Jenjang;Antrean;Kode;Panel'];
+ $('#bt').innerHTML=it.map((x,i)=>{const pen=jenjang(x.a[1])==='Penuh',bb='BB-0'+(i+1),c=x.kon==='mati'?'B1':x.a[1]==='burung'?'G1':!pen?'D1':x.j>1?`S1–S${x.j}`:'S1',
+  an=!pen?'Tidak diantrekan':x.kon==='kritis'?'Dikecualikan, tinjau dokter hewan kedua':(x.a[4]?`${qs[i]} (inang Nipah)`:qs[i]+(spz(x.a[2],x.a[3])!=null?` (skor ${pc(spz(x.a[2],x.a[3]))})`:'')),
+  pn=x.kon==='mati'?'Bangkai disimpan'+(pen&&x.a[1]!=='burung'?'; jaringan otak untuk rabies':''):PAN[x.a[1]];
+  lines.push([bb,x.a[0],x.j,x.kon,pen?'Penuh':'Dasar',an,`${bb}/${c}`,pn].join(';'));
+  return`<tr><td><span class="code">${bb}</span></td><td><b>${x.a[0]}</b><div class="mut">${x.j} ekor · ${x.kon}</div></td><td><span class="pill ${pen?'p1':'p2'}">${pen?'Penuh':'Dasar'}</span></td><td>${an}</td><td><span class="code">${bb}/${c}</span></td><td>${pn}</td><td><button class="btn o" data-x="${i}" aria-label="Hapus">✕</button></td></tr>`}).join('');
+ $('#bc').value=($('#bn').value+' · '+$('#bl').value+'\n')+lines.join('\n');
+ const tot=it.filter(x=>jenjang(x.a[1])==='Penuh'&&x.kon!=='mati').reduce((s,x)=>s+x.j,0),ok=it.filter(x=>jenjang(x.a[1])==='Penuh'&&x.kon==='stabil').reduce((s,x)=>s+x.j,0),p=tot?Math.round(ok/tot*100):0;
+ $('#rsb').textContent=p+'%';$('#rsm').style.width=p+'%';$('#rst').textContent=tot?`${ok} dari ${tot} individu hidup jenjang penuh disampel · ${p>=80?'memenuhi':'di bawah'} target ≥80%`:'Target ≥80% satwa hidup jenjang penuh'}
+$('#badd').onclick=()=>{BA.push({k:$('#bs').value,j:Math.max(1,+$('#bj').value||1),kon:$('#bk').value});ba()};
+$('#bt').onclick=e=>{const x=e.target.dataset.x;if(x==null)return;BA.splice(+x,1);ba()};$('#bn').oninput=$('#bl').oninput=ba;
+BA=[{k:'kalong',j:1,kon:'stabil'},{k:'monyet',j:2,kon:'stabil'},{k:'burung',j:10,kon:'stabil'},{k:'ular',j:1,kon:'stabil'}];ba();
+// ---- SPZ
+let Z=[['Monyet ekor panjang',9,13,0],['Kelelawar buah berhidung pendek',5,10,0],['Kalong besar',1,10,1],['Beruk',6,'',0],['Garangan jawa',2,'',0],['Musang galing',1,'',0],['Kukang',0,'',0]];
+function zq(){const o=Z.map(([n,v,p,w])=>({n,v:+v||0,p:p===''?null:+p,w})),rk=rank(o);
+ $('#zq').innerHTML=rk.map(i=>{const x=o[i],s=spz(x.v,x.p);return`<li style="margin:6px 0"><b>${x.n}</b> ${x.w?'<span class="pill p3">inang Kemenkes</span>':''} <span class="mut">skor ${s==null?'n/a':pc(s)}</span></li>`}).join('');
+ $$('#zt .sc').forEach((el,i)=>{const s=spz(+Z[i][1]||0,Z[i][2]===''?null:+Z[i][2]);el.textContent=s==null?'n/a':pc(s)})}
+function zt(){$('#zt').innerHTML=Z.map((r,i)=>`<tr><td>${r[0]}<div class="mut sc"></div></td><td><input type="number" min="0" value="${r[1]}" data-z="${i}1" aria-label="Virus ${r[0]}"></td><td><input type="number" min="0" max="14" value="${r[2]}" placeholder="n/a" data-z="${i}2" aria-label="Pasar ${r[0]}"></td><td><input type="checkbox" ${r[3]?'checked':''} data-z="${i}3" aria-label="Kemenkes ${r[0]}"></td></tr>`).join('');zq()}
+$('#zt').oninput=e=>{const z=e.target.dataset.z;if(!z)return;Z[+z[0]][+z[1]]=z[1]==='3'?(e.target.checked?1:0):e.target.value;zq()};
+$('#zadd').onclick=()=>{const n=$('#zn').value.trim();if(n){Z.push([n,0,'',0]);$('#zn').value='';zt()}};zt();
+// ---- Biaya
+function biaya(){const n=+$('#bn1').value,pn=+$('#bp').value,pl=Math.max(2,+$('#bpl').value||10),t=+$('#bta').value||0;$('#bnv').textContent=n;
+ const o=[['Per individu',n],['Pooling 5 ekor',Math.ceil(n/5)],[`Pooling ${pl} ekor`,Math.ceil(n/pl)]].map(([l,u])=>[l,u,u*pn*t]);
+ $('#bo').innerHTML=o.map(([l,u,c],i)=>`<div style="margin-bottom:14px"><div style="display:flex;justify-content:space-between"><span>${l} · ${u} uji</span><b>${rp(c)}</b></div><div class="meter"><i style="width:${o[0][2]?c/o[0][2]*100:0}%;background:${i?'var(--tl)':'var(--hz)'}"></i></div></div>`).join('')+`<div class="big" style="color:var(--tl)">${o[0][2]?Math.round((1-o[2][2]/o[0][2])*100):0}%</div><div class="mut">hemat dengan pooling ${pl} ekor dibanding per individu</div>`}
+['bn1','bp','bpl','bta'].forEach(i=>$('#'+i).oninput=biaya);biaya();
+// ---- Target
+const st=(ok,t)=>`<span class="pill ${ok?'p1':'p4'}">${t}</span>`;
+function tgt(){const a=+$('#t1').value,b=+$('#t2').value,c=+$('#t3').value,d=+$('#t4').value,h=a?Math.round(b/a*100):0,k=c?Math.round(d/c*100):100;
+ $('#to').innerHTML=`<div class="big">${h}%</div><div class="meter"><i style="width:${Math.min(h,100)}%"></i></div><div>Satwa hidup: ${st(h>=80,h>=80?'memenuhi ≥80%':'di bawah ≥80%')}</div><div style="margin-top:8px">Bangkai diuji: <b>${k}%</b> ${st(k>=100,k>=100?'memenuhi 100%':'di bawah 100%')}</div>`}
+['t1','t2','t3','t4'].forEach(i=>$('#'+i).oninput=tgt);tgt();
+const df=(a,b)=>Math.round((new Date(b)-new Date(a))/864e5);
+function dl(){const a=$('#d1').value,b=$('#d2').value;if(!a){$('#do').innerHTML='<span class="mut">Isi tanggal penyitaan.</span>';return}
+ const lim=new Date(new Date(a).getTime()+7*864e5).toLocaleDateString('id-ID',{dateStyle:'long'});
+ $('#do').innerHTML=`<div>Hasil lab paling lambat: <b>${lim}</b></div>`+(b?`<div style="margin-top:8px">Hasil keluar hari ke-${df(a,b)} ${st(df(a,b)<=7&&df(a,b)>=0,df(a,b)<=7&&df(a,b)>=0?'tepat waktu':'melewati 7 hari')}</div>`:'')}
+$('#d1').oninput=$('#d2').oninput=dl;dl();
+// ---- Checklist
+const CL={'Jenjang dasar · polisi kehutanan':['Isi berita acara identifikasi (jenis, jumlah, kondisi)','Foto satwa dari berbagai sudut','Catat tanda klinis yang tampak','Simpan bangkai bila ada satwa mati','Buat kode sampel sama dengan nomor barang bukti'],'Jenjang penuh · dokter hewan':['Pakai alat pelindung diri lengkap','Tunggu satwa stabil sebelum sampling','Ambil usap orofaring dan feses dalam satu kali penanganan','Terapkan panel uji sesuai takson','Serologi herpes B hanya bila primata dibius klinis','Inaktivasi sampel sebelum dikirim ke laboratorium'],'SAMBUNG · unggah dan notifikasi':['Unggah hasil ke SEHATSATLI, lalu ke SIZE','Hasil laboratorium keluar ≤7 hari sejak penyitaan','Bila positif: kirim notifikasi ke tiga pihak ≤24 jam','Serahkan riwayat kesehatan ke lembaga rehabilitasi','Bila SIZE terganggu: arsip di SEHATSATLI dan notifikasi manual']};
+let CS={};try{CS=JSON.parse(localStorage.getItem('bgcl')||'{}')}catch(e){}
+function cl(){$('#cl').innerHTML=Object.entries(CL).map(([g,a],gi)=>{const d=a.filter((_,i)=>CS[gi+'-'+i]).length;return`<div class="card"><h3>${g}</h3><div class="meter"><i style="width:${d/a.length*100}%"></i></div><div class="mut">${d} dari ${a.length} selesai</div>`+a.map((t,i)=>`<label class="ck ${CS[gi+'-'+i]?'d':''}" style="font-weight:400;margin:0"><input type="checkbox" data-c="${gi}-${i}" ${CS[gi+'-'+i]?'checked':''}><span>${t}</span></label>`).join('')+'</div>'}).join('')}
+$('#cl').onchange=e=>{const c=e.target.dataset.c;if(!c)return;CS[c]=e.target.checked;try{localStorage.setItem('bgcl',JSON.stringify(CS))}catch(x){}cl()};
+$('#clr').onclick=()=>{CS={};try{localStorage.removeItem('bgcl')}catch(x){}cl()};cl();
+// ---- Notifikasi
+const NP={nipah:['kalong positif Nipah','Mohon pantau petugas dan tersangka yang kontak langsung dengan satwa sesuai pedoman.','Mohon periksa ternak di sekitar lokasi penyitaan.','Satwa wajib diisolasi dan tidak digabung dengan populasi rehabilitasi.'],h5n1:['burung positif H5N1 (gabungan sampel)','Mohon pantau petugas yang kontak langsung dengan satwa sesuai pedoman.','Mohon lakukan surveilans unggas di sekitar lokasi penyitaan.','Pisahkan satwa positif dari burung lain.'],knowlesi:['primata positif Plasmodium knowlesi','Mohon periksa petugas yang kontak langsung dan berikan edukasi gejala.','Untuk informasi.','Satwa masuk protokol pengobatan dan dipisahkan dari individu sehat.']};
+const loc=()=>new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,16);
+$('#nw').value=loc();
+function notif(){const k=$('#np').value,b=$('#nb').value,l=$('#nl').value||'lokasi penyitaan',w=$('#nw').value,
+ dd=w?new Date(new Date(w).getTime()+864e5).toLocaleString('id-ID',{dateStyle:'long',timeStyle:'short'}):'-';
+ const box=(t,x)=>`<div class="card"><b>${t}</b><textarea readonly style="margin-top:8px">${x}</textarea></div>`;
+ if(k==='neg'){$('#nd').textContent='Hasil negatif: unggah ke SEHATSATLI, lalu ke SIZE, paling lambat 7 hari sejak penyitaan.';$('#nm').innerHTML=box('Untuk lembaga rehabilitasi',`Yth. Pengelola rehabilitasi,\nSeluruh sampel barang bukti ${b} dari ${l} negatif. Riwayat kesehatan terlampir sebagai dasar perawatan dan keputusan pelepasliaran.`);return}
+ const d=NP[k];$('#nd').innerHTML=`Batas waktu notifikasi: <b>${dd}</b> (24 jam sejak hasil positif).`;
+ const h=`Yth. ${'%'},\nHasil uji barang bukti ${b} dari ${l}: ${d[0]}. `;
+ $('#nm').innerHTML=box('Untuk dinas kesehatan',h.replace('%','Dinas Kesehatan')+d[1]+`\nMohon tindak lanjut sebelum ${dd}.`)+box('Untuk dinas peternakan',h.replace('%','Dinas Peternakan')+d[2])+box('Untuk lembaga rehabilitasi',h.replace('%','Pengelola rehabilitasi')+d[3]+'\nRiwayat kesehatan satwa terlampir.')}
+['np','nb','nl','nw'].forEach(i=>$('#'+i).oninput=notif);notif();
+$$('[data-n]').forEach(el=>{const n=+el.dataset.n;let i=0;const id=setInterval(()=>{i+=Math.max(1,n/30);if(i>=n){i=n;clearInterval(id)}el.textContent=Math.round(i)},35)});
+TOOLS.forEach(x=>{const h=$('#v-'+x[0]+' h2');h.innerHTML=`<span class="hi" style="background:${G[x[0]]}">${x[1]}</span>${h.textContent}`});
+</script></body></html>
